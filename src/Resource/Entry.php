@@ -126,6 +126,7 @@ class Entry extends LocalizedResource implements EntryInterface, \ArrayAccess
     /**
      * {@inheritdoc}
      */
+    #[\ReturnTypeWillChange]
     public function offsetGet($name)
     {
         return $this->get($name);
@@ -134,7 +135,7 @@ class Entry extends LocalizedResource implements EntryInterface, \ArrayAccess
     /**
      * {@inheritdoc}
      */
-    public function offsetExists($name)
+    public function offsetExists($name): bool
     {
         return $this->has($name);
     }
@@ -142,7 +143,7 @@ class Entry extends LocalizedResource implements EntryInterface, \ArrayAccess
     /**
      * {@inheritdoc}
      */
-    public function offsetSet($name, $value)
+    public function offsetSet($name, $value): void
     {
         throw new \LogicException('Entry class does not support setting fields.');
     }
@@ -150,7 +151,7 @@ class Entry extends LocalizedResource implements EntryInterface, \ArrayAccess
     /**
      * {@inheritdoc}
      */
-    public function offsetUnset($name)
+    public function offsetUnset($name): void
     {
         throw new \LogicException('Entry class does not support unsetting fields.');
     }
